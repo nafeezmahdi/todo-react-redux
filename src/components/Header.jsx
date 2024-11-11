@@ -3,7 +3,8 @@ import tickImage from "../assets/images/double-tick.png";
 import noteImage from "../assets/images/notes.png";
 import plusImage from "../assets/images/plus.png";
 import { useDispatch } from "react-redux";
-import { added, allcompleted, clearcompleted } from "../redux/todos/actions";
+import { allcompleted, clearcompleted } from "../redux/todos/actions";
+import addTodo from "../redux/todos/thunk/addTodo";
 
 export default function Header() {
   const [newTodo, setNewTodo] = useState("");
@@ -15,7 +16,7 @@ export default function Header() {
 
   const submitHandler = (evnt) => {
     evnt.preventDefault();
-    dispatch(added(newTodo));
+    dispatch(addTodo(newTodo));
     setNewTodo("");
   };
 
@@ -44,6 +45,7 @@ export default function Header() {
         <button
           type="submit"
           className={`appearance-none w-8 h-8 bg-[url('${plusImage}')] bg-no-repeat bg-contain`}
+          style={{ backgroundImage: `url(${plusImage})` }}
         ></button>
       </form>
 

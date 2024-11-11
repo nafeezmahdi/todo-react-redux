@@ -3,9 +3,17 @@ import {
   ALLCOMPLETED,
   CLEARCOMPLETED,
   DELETED,
+  LOADED,
   SELECTEDCOLOR,
   TOGGLED,
 } from "./actionTypes";
+
+export const loaded = (todos) => {
+  return {
+    type: LOADED,
+    payload: todos,
+  };
+};
 
 export const added = (todoText) => {
   return {
